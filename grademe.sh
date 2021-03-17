@@ -23,10 +23,10 @@ execute_shell () {
 	bash_status=$?
 	exec_minishell "$test_cmd" > ${MINISHELL_STDOUT_FILE} 2> ${MINISHELL_STDERR_FILE}
 	minishell_status=$?
-	replace_bash_error
+	replace_stderr
 }
 
-replace_bash_error () {
+replace_stderr () {
 	grep "bash: -c" ${BASH_STDERR_FILE} > /dev/null
 	if [ $? -eq 0 ]; then
 		sed -i "" -e 's/bash: -c: line [0-9]*:/minishell:/g' -e '2d' ${BASH_STDERR_FILE}
