@@ -92,6 +92,10 @@ set_minishell_path () {
 	cd ${SCRIPT_DIR}
 	cd ${MINISHELL_DIR}
 	MINISHELL_PATH="$(pwd)/${MINISHELL_EXE}"
+	if [ ! -e "${MINISHELL_PATH}" ]; then
+		echo "Minishell not found: ${MINISHELL_PATH}"
+		exit 1
+	fi
 	cd ${SCRIPT_DIR}
 }
 
