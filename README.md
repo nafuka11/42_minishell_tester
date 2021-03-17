@@ -58,12 +58,14 @@ minishellのテスト、leaksチェックを行うスクリプトです。
 Makefile
 ```Makefile
 NAME_LEAKS	:= minishell_leaks
-SRCS_DEBUG	:= debug.c
-ifdef DEBUG
-NAME		:= $(NAME_DEBUG)
+SRCS_LEAKS	:= leaks.c
+
+ifdef LEAKS
+NAME		:= $(NAME_LEAKS)
 endif
+
 leaks	:
-	$(MAKE) CFLAGS="$(CFLAGS) -D LEAKS=1" SRCS="$(SRCS) $(SRCS_DEBUG)" LEAKS=TRUE
+	$(MAKE) CFLAGS="$(CFLAGS) -D LEAKS=1" SRCS="$(SRCS) $(SRCS_LEAKS)" LEAKS=TRUE
 ```
 
 headerファイル
@@ -78,7 +80,7 @@ void	end(void) __attribute__((destructor));
 
 # endif
 ```
-cファイル
+cファイル（leaks.c）
 ```c
 #include <stdlib.h>
 #include "debug.h"
