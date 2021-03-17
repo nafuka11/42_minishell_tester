@@ -1,0 +1,78 @@
+mkdir dir; cd dir; pwd
+mkdir dir; cd dir; cd .; pwd
+mkdir dir; cd dir; cd ./; pwd
+mkdir dir; cd dir; cd ..; pwd
+mkdir dir; cd dir; cd ../; pwd
+touch testfile; cd testfile
+cd NO_SUCH_FILE; pwd
+cd hello world; pwd
+cd /; cd ../../akjwyefgjkwveyjfgweyugyuwegf76t273/../../ ;pwd
+mkdir dir; cd dir; cd ../nosuchdir/../dir; pwd
+mkdir hello; cd hello world; pwd
+cd /; pwd
+cd /bin; pwd
+cd /bin/../; pwd
+mkdir dir; cd DIR; pwd
+mkdir DIR; cd dir; pwd
+mkdir dir; chmod 000 dir; cd dir; pwd;chmod 777 dir
+mkdir dir; ln -s dir link; cd link; pwd
+mkdir dir; ln -s dir link; rmdir dir; cd link; pwd
+mkdir dir; cd dir; rmdir ../dir; cd ./; pwd;cd .; pwd; cd ./././././; pwd; cd .////////./; pwd; cd ../; pwd
+mkdir -p a/b/c; cd a/b/c; rm -rf ../../b; cd ./; pwd; cd ../; pwd; cd .////./; pwd
+mkdir -p a/b/c; cd a/b/c; rm -rf ../../b; cd ./; pwd; cd .././.; pwd; cd ./; pwd; cd ../; pwd
+cd ; pwd
+export HOME=; cd ; pwd
+unset HOME; cd ; pwd
+export HOME="./"; cd ; pwd
+export HOME="../../"; cd ; pwd
+export HOME=""; cd ; pwd
+export HOME="/BIN"; cd ; pwd
+export HOME=a; mkdir -p a/b; cd ; pwd
+export HOME=NO_SUCH_FILE; cd ; pwd
+export CDPATH="/"; cd bin; pwd
+export CDPATH="/"; cd ; pwd
+export CDPATH="/"; export HOME=; cd ; pwd
+export CDPATH="/"; unset HOME; cd ; pwd
+export CDPATH=""; mkdir -p a/b; cd b; pwd
+export CDPATH="./"; mkdir dir; cd dir; pwd
+export CDPATH="../a"; mkdir -p a/b/c; cd b; pwd; cd a; pwd; cd b; pwd
+export CDPATH=a; mkdir -p a/b/c; cd b; pwd
+export CDPATH=A; mkdir -p a/b/c; cd b; pwd
+export CDPATH=a; mkdir -p a/b/c; cd ./b; pwd
+export CDPATH=a; mkdir -p a/b/c; cd a; cd ../b; pwd
+export CDPATH=a; mkdir -p a/b/c; cd .; pwd
+export CDPATH=a; mkdir -p a/b/c; cd a; cd ..; pwd
+export CDPATH=a; mkdir -p a/b/c; mkdir b; cd b; pwd
+export CDPATH=a/b; mkdir -p a/b/c; cd c; pwd
+export CDPATH=a:b:a:b; mkdir -p a/test  b/test; mkdir -p a:b/test; cd test; pwd
+export CDPATH=b:a:a:b; mkdir -p a/test  b/test; mkdir -p a:b/test; cd test; pwd
+export CDPATH=a:b:a:b; mkdir -p a/hello  b/hello; mkdir -p a:b/test; cd test; pwd
+export CDPATH=a:b:a:b; mkdir -p a/test  b/test; mkdir -p a:b/test; chmod 000 a/test ;cd test; pwd; cd ../../; chmod 777 a/test
+export CDPATH="/"; cd /; pwd
+export CDPATH="/"; cd /bin; pwd
+export CDPATH="/bin"; cd /bin; pwd
+export CDPATH="/bin"; cd /bin; pwd
+export CDPATH="a"; mkdir a; cd a; pwd
+export CDPATH="a"; mkdir -p a/a; cd a; pwd
+mkdir -p a/b/c/d/e/f/g/h/i/; cd a/b/c/d/../../c/d/e/f/g/h/i/../../../g/h/i/../.././././../g/h/i/../../../../../../../c/d/../d/../d/e/../../d/e/.././././e/f/.//////../f/g/h/i/////../../../; pwd
+export HOME="/"; cd; cd ../../../../../././././../../../././../../../; pwd
+cd //; pwdl; cd //bin; pwd
+cd ///; pwdl; cd ///bin; pwd
+cd ////; pwdl; cd ////bin; pwd
+cd /////; pwdl; cd /////bin; pwd
+cd //////; pwdl; cd //////bin; pwd
+cd ///////; pwdl; cd ///////bin; pwd
+export HOME=//; cd
+export HOME=//bin/..////////////bin/../; cd
+export HOME=///; cd
+export CDPATH=//; cd bin
+export CDPATH=//bin/..////////////bin/../; cd bin
+export CDPATH=///; cd bin
+export CDPATH=":"; cd dir; pwd, mkdir dir
+export CDPATH="hello:"; cd dir; pwd, mkdir dir
+export CDPATH=":/"; cd dir; pwd, mkdir dir
+export CDPATH="::/"; cd bin; pwd, mkdir bin
+export CDPATH="::/:"; cd bin; pwd, mkdir bin
+export CDPATH=""; cd bin; pwd, mkdir bin
+export CDPATH="/:"; cd bin; pwd, mkdir bin
+export CDPATH="//::"; cd bin; pwd, mkdir bin

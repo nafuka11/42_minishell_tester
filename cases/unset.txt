@@ -1,0 +1,11 @@
+unset; env | grep -v -E '^_=' | sort
+unset A; echo $A, export A='test $A'
+unset _A1; echo $_A1, export _A1='test $_A1'
+unset A B C; echo $A$B$C$D, export A=test B=multiple C=var D=hello
+unset A B =invalid C; echo $A$B$C$D, export A=test B=multiple C=var D=hello
+unset PWD; echo $PWD
+unset OLDPWD; echo $OLDPWD
+unset NO_SUCH_ENV; echo $?$NO_SUCH_ENV, unset NO_SUCH_ENV
+unset 1
+unset A=a; echo $A, export A=a
+unset ' \"$&`\n'

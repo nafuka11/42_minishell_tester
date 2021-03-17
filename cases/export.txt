@@ -1,0 +1,19 @@
+export | grep -v -E '^declare -x _='
+export 1 _+ _OK _2? _OK2=VAR =NG OK3=; export | grep -v -E '^declare -x _='
+export dquote='"' dollar='$' backslash='\' backquote='`' newline='\n'; export | grep -v -E '^declare -x _='
+export APPEND=1; export APPEND+=2; export | grep APPEND
+export APPEND_NONE=1; export APPEND_NONE+=; export | grep APPEND_NONE
+export APPEND_NONE=; export APPEND_NONE=; export APPEND_NONE+=; export | grep APPEND_NONE
+export APPEND_EMPTY=""; export APPEND_EMPTY=""; export APPEND_EMPTY=""; export | grep APPEND_EMPTY
+export OVERWRITE=42; export OVERWRITE=a; export | grep OVERWRITE
+export A=B=C=D; export | grep A
+export PATH; export | grep PATH
+export PWD; export | grep PWD
+export OLDPWD; export | grep OLDPWD
+unset PWD; cd ..; export | grep PWD
+unset OLDPWD; cd ..; export | grep OLDPWD
+unset PWD; cd ..; export PWD=new_value; export | grep PWD
+unset OLDPWD; cd ..; export OLDPWD=new_value; export | grep OLDPWD
+unset PWD; cd ..; export PWD; export | grep PWD
+unset OLDPWD; cd ..; export OLDPWD; export | grep OLDPWD
+export =

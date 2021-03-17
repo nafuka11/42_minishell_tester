@@ -1,0 +1,21 @@
+echo $OLDPWD
+echo $OLDPWD, export OLDPWD=/
+echo $PWD
+echo $PWD, export PWD=/
+echo $PWD, mkdir dir; ln -s dir symdir; cd symdir
+pwd
+pwd, export PWD=/
+pwd, mkdir dir; ln -s dir symdir; cd symdir
+pwd; echo $PWD; echo $OLDPWD, export PWD=; export OLDPWD=;
+mkdir dir; cd dir; pwd; echo $PWD; echo $OLDPWD, export PWD=; export OLDPWD=;
+mkdir dir; cd dir; cd ..; pwd; echo $PWD; echo $OLDPWD, export PWD=; export OLDPWD=;
+cd; pwd; echo $PWD; echo $OLDPWD, export PWD=; export OLDPWD=;
+mkdir dir; cd dir; rmdir ../dir; cd ./; pwd; echo $PWD; echo $OLDPWD, export PWD=; export OLDPWD=;
+mkdir dir; cd dir; rmdir ../dir; cd ./; cd ././././././//////////./././././././//////./; pwd; echo $PWD; echo $OLDPWD, export PWD=; export OLDPWD=;
+mkdir dir; cd dir; rmdir ../dir; cd ./; cd ../; pwd; echo $PWD; echo $OLDPWD, export PWD=; export OLDPWD=;
+mkdir dir; ln -s dir link; cd link; rmdir ../dir; cd ./; pwd; echo $PWD; echo $OLDPWD, export PWD=; export OLDPWD=;
+mkdir dir; ln -s dir link; cd link; rmdir ../dir; cd ./; cd ../; pwd; echo $PWD; echo $OLDPWD, export PWD=; export OLDPWD=;
+mkdir DIR; cd dir; rmdir ../DIR; cd ./; pwd; echo $PWD; echo $OLDPWD, export PWD=; export OLDPWD=;
+mkdir DIR; cd dir; rmdir ../DIR; cd ./; cd ../; pwd; echo $PWD; echo $OLDPWD, export PWD=; export OLDPWD=;
+mkdir dir; ln -s dir link; cd LINK; rmdir ../dir; cd ./; pwd; echo $PWD; echo $OLDPWD, export PWD=; export OLDPWD=;
+mkdir dir; ln -s dir link; cd LINK; rmdir ../dir; cd ./; cd ../; pwd; echo $PWD; echo $OLDPWD, export PWD=; export OLDPWD=;

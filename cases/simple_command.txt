@@ -1,0 +1,40 @@
+/bin/ls, touch a .a
+/bin/ls -a, touch a .a
+/bin/ls | /usr/bin/grep a, touch aa ab ac
+/bin/ls | /usr/bin/grep a | /usr/bin/grep c, touch aa ab ac
+ls, touch a .a
+ls -a, touch a .a
+ls | grep a, touch aa ab ac
+ls | grep a | grep c, touch aa ab ac
+echo hello world | cat
+no_such_file
+./no_such_file
+/bin/ls/no_such_file
+/bin/no_such_dir/file
+perm, touch perm; chmod 000 perm
+./perm, touch perm; chmod 000 perm
+perm, touch perm; chmod 100 perm
+./perm, touch perm; chmod 100 perm
+perm, touch perm; chmod 300 perm
+./perm, touch perm; chmod 300 perm
+perm, touch perm; chmod 500 perm
+./perm, touch perm; chmod 500 perm
+./empty, touch empty; chmod +x empty
+dir, mkdir dir
+./dir, mkdir dir
+./exe, printf "#!/bin/bash\necho 42" > exe; chmod +x exe; ln -s exe sym; chmod -h -x sym
+echo a | $NO_ENV | cat, unset NO_ENV
+export PATH=":" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH=":/" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH="::" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH="/:" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH="/bin:" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH=":/bin" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH="::/bin::" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH="/bin:" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH="hello:" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH=""; nosuchfile
+export PATH=''; nosuchfile
+unset PATH; nosuchfile
+unset PATH; export PATH; nosuchfile
+unset PATH; export PATH=; nosuchfile

@@ -1,0 +1,26 @@
+exit 0
+exit 1
+exit -1
+exit 2147483647
+exit 2147483648
+exit -2147483648
+exit -2147483649
+exit 9223372036854775807
+exit 9223372036854775808
+exit -9223372036854775808
+exit -9223372036854775809
+exit -- 42
+exit "        42           "
+exit -- -- 42
+exit --42
+exit ++42
+exit 42 42
+exit a
+exit 1a
+exit +
+exit -
+exit "          "
+exit 0 0;
+exit 0 0; exit
+exit 0 0; echo "this message should not be displayed" 2> file; ls
+exit 0 0 | echo hello
