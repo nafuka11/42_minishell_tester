@@ -13,8 +13,8 @@ minishellのテスト、leaksチェックを行うスクリプトです。
 
 ### テスト実行
 
-1. `grademe.sh` の `User Settings` を編集する。
-1. テストを実行する。
+1. `grademe.sh` の `User Settings` を編集します。
+1. テストを実行します。
    - minishell に -c オプションを実装している場合
      ```bash
      ./grademe.sh -c
@@ -39,8 +39,8 @@ minishellのテスト、leaksチェックを行うスクリプトです。
 
 ### leaksチェック
 
-1. `make 任意のrule` で、minishell終了時にleaksコマンドが実行されるようにする。
-1. `leaks.sh` の `User Settings` を編集する。
+1. `make 任意のrule` で、minishell終了時にleaksコマンドが実行されるようにします。
+1. `leaks.sh` の `User Settings` を編集します。
 1. テストを実行する。
    - minishell に -c オプションを実装している場合
      ```bash
