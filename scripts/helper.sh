@@ -28,7 +28,6 @@ result_ko=0
 cflag=0
 
 run_all_tests () {
-	set_minishell_path
 	cleanup
 	rm -f ${LOG_FILE}
 	if [ -n "$1" ]; then
@@ -36,9 +35,11 @@ run_all_tests () {
 			print_usage
 		fi
 		build_executable
+		set_minishell_path
 		run_tests "$1"
 	else
 		build_executable
+		set_minishell_path
 		for file in $(ls ${CASE_DIR} | sed 's/\.txt//'); do
 			run_tests "${file}"
 		done
