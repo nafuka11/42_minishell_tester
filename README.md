@@ -19,7 +19,7 @@ minishellのテスト、leaksチェックを行うスクリプトです。
    |--|--|
    |MINISHELL_DIR|minishellが存在するディレクトリパス（相対or絶対）|
    |MINISHELL_EXE|minishellの実行ファイル名|
-   |MINISHELL_PROMPT|プロンプト文字列（ -c オプションを使う場合未設定で大丈夫です）|
+   |MINISHELL_PROMPT|stderrに表示されるプロンプト文字列（ -c オプションを使う場合、未設定で大丈夫です）|
 
 1. テストを実行します。
    - minishell に -c オプションを実装している場合
