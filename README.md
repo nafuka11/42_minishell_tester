@@ -109,6 +109,14 @@ void	end(void)
 #endif
 ```
 
+### テストで行っていること
+
+1. テスト用ディレクトリ `test/` を作成し、移動。
+1. セットアップ用コマンドを実行。
+1. bash もしくは minishell を実行。
+1. `outputs/` にstdout, stderrをファイルとして出力。
+1. bash と minishell の stdout, stderr, exit statusを比較。
+
 ## テストケースについて
 
 最初はたくさんエラーが出てしまうと思います。
