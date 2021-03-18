@@ -13,7 +13,14 @@ minishellのテスト、leaksチェックを行うスクリプトです。
 
 ### テスト実行
 
-1. `grademe.sh` の `User Settings` を編集します。
+1. `grademe.sh` の `User settings` を編集します。
+
+   |変数名|説明|
+   |--|--|
+   |MINISHELL_DIR|minishellが存在するディレクトリパス（相対or絶対）|
+   |MINISHELL_EXE|minishellの実行ファイル名|
+   |MINISHELL_PROMPT|プロンプト文字列（ -c オプションを使う場合未設定で大丈夫です）|
+
 1. テストを実行します。
    - minishell に -c オプションを実装している場合
      ```bash
@@ -40,7 +47,14 @@ minishellのテスト、leaksチェックを行うスクリプトです。
 ### leaksチェック
 
 1. `make 任意のrule` で、minishell終了時にleaksコマンドが実行されるようにします。
-1. `leaks.sh` の `User Settings` を編集します。
+1. `leaks.sh` の `User settings` を編集します。
+
+   |変数名|説明|
+   |--|--|
+   |MINISHELL_DIR|minishellが存在するディレクトリパス（相対or絶対）|
+   |MINISHELL_EXE|minishellの実行ファイル名|
+   |MAKE_TARGET|実行ファイルを生成するmakeルール|
+
 1. テストを実行する。
    - minishell に -c オプションを実装している場合
      ```bash
