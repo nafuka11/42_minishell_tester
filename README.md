@@ -137,3 +137,8 @@ void	end(void)
   - `$_`
   - `$123`
   - シグナルのテスト
+
+## 謝辞
+minishell を一緒に取り組んだ [ToYeah](https://github.com/ToYeah) さんに cd, echo, expand, pwd など多数のテストケースを作成いただきました。
+
+この場を借りて御礼申し上げます。
