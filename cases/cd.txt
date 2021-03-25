@@ -56,12 +56,12 @@ export CDPATH="a"; mkdir a; cd a; pwd
 export CDPATH="a"; mkdir -p a/a; cd a; pwd
 mkdir -p a/b/c/d/e/f/g/h/i/; cd a/b/c/d/../../c/d/e/f/g/h/i/../../../g/h/i/../.././././../g/h/i/../../../../../../../c/d/../d/../d/e/../../d/e/.././././e/f/.//////../f/g/h/i/////../../../; pwd
 export HOME="/"; cd; cd ../../../../../././././../../../././../../../; pwd
-cd //; pwdl; cd //bin; pwd
-cd ///; pwdl; cd ///bin; pwd
-cd ////; pwdl; cd ////bin; pwd
-cd /////; pwdl; cd /////bin; pwd
-cd //////; pwdl; cd //////bin; pwd
-cd ///////; pwdl; cd ///////bin; pwd
+cd //; pwd; cd //bin; pwd
+cd ///; pwd; cd ///bin; pwd
+cd ////; pwd; cd ////bin; pwd
+cd /////; pwd; cd /////bin; pwd
+cd //////; pwd; cd //////bin; pwd
+cd ///////; pwd; cd ///////bin; pwd
 export HOME=//; cd
 export HOME=//bin/..////////////bin/../; cd
 export HOME=///; cd
