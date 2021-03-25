@@ -2,20 +2,20 @@ Translations: [English(en)](README.md) [日本語(ja)](README.ja.md)
 
 # 42_minishell_tester
 
-Script for minishell to test and check the results of the leaks command.
+Script for minishell to test and check the result of the leaks command.
 
 ## Features
 - Easy to add test cases.
   - You can add tests by placing a text file in `cases/`.
 - Supports both minishell with and without -c option.
   - Without -c option is simple support. It may not work with some prompt strings.
-- Check the results of the leaks command in each test case (source code editing required)
+- Check the result of the leaks command in each test case (source code editing required)
 
 ## Usage
 
 Clone this repository to any directory.
 
-### Run the tests
+### Run tests
 
 1. Edit `User settings` in `grademe.sh`.
 
@@ -25,7 +25,7 @@ Clone this repository to any directory.
    |MINISHELL_EXE|Minishell executable file name|
    |MINISHELL_PROMPT|Prompt string to be displayed in stderr (if you use -c option, you can leave it unset)|
 
-1. Run the test
+1. Run all tests
    - If you have implemented the -c option to minishell
      ```bash
      ./grademe.sh -c
@@ -62,7 +62,7 @@ Clone this repository to any directory.
    |MINISHELL_EXE|Minishell executable file name|
    |MAKE_TARGET|Make rule to generate the executable file|
 
-1. Run the test
+1. Run all tests
    - If you have implemented the -c option to minishell
      ```bash
      ./leaks.sh -c
@@ -127,13 +127,13 @@ void	end(void)
 
 ## About the test case
 
-When you run the tests, you may see a lot of KO at first.  
+When you run tests, you may see a lot of KO at first.  
 Please create your own test cases and try to run them only, or delete existing test cases.
 
 ### How to create test cases
 - Create a text file in `cases/`.
 - Write the command to be tested and the setup command in the text file separated by commas.
-  - This means that the commands to be tested cannot contain commas.
+  - This means that the command to be tested cannot contain commas.
 - A newline is required at the end of the file. If there is no newline, the test on the last line will be ignored.
 
 ## Cautions
