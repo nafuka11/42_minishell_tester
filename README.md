@@ -25,7 +25,7 @@ Clone this repository to any directory.
    |MINISHELL_EXE|Minishell executable file name|
    |MINISHELL_PROMPT|Prompt string to be displayed in stderr (if you use -c option, you can leave it unset)|
 
-1. Run the test
+1. Run all tests
    - If you have implemented the -c option to minishell
      ```bash
      ./grademe.sh -c
@@ -62,7 +62,7 @@ Clone this repository to any directory.
    |MINISHELL_EXE|Minishell executable file name|
    |MAKE_TARGET|Make rule to generate the executable file|
 
-1. Run the test
+1. Run all tests
    - If you have implemented the -c option to minishell
      ```bash
      ./leaks.sh -c
