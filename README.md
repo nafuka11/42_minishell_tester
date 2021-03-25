@@ -133,7 +133,7 @@ Please create your own test cases and try to run them only, or delete existing t
 ### How to create test cases
 - Create a text file in `cases/`.
 - Write the command to be tested and the setup command in the text file separated by commas.
-  - This means that the commands to be tested cannot contain commas.
+  - This means that the command to be tested cannot contain commas.
 - A newline is required at the end of the file. If there is no newline, the test on the last line will be ignored.
 
 ## Cautions
