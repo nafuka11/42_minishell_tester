@@ -2,14 +2,14 @@ Translations: [English(en)](README.md) [日本語(ja)](README.ja.md)
 
 # 42_minishell_tester
 
-Script for minishell to test and check the results of the leaks command.
+Script for minishell to test and check the result of the leaks command.
 
 ## Features
 - Easy to add test cases.
   - You can add tests by placing a text file in `cases/`.
 - Supports both minishell with and without -c option.
   - Without -c option is simple support. It may not work with some prompt strings.
-- Check the results of the leaks command in each test case (source code editing required)
+- Check the result of the leaks command in each test case (source code editing required)
 
 ## Usage
 
