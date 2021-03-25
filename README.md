@@ -8,7 +8,7 @@ Script for minishell to test and check the results of the leaks command.
 - Easy to add test cases.
   - You can add tests by placing a text file in `cases/`.
 - Supports both minishell with and without -c option.
-  - Without -c is simple support, so it may not work depending on the prompt string.
+  - Without -c option is simple support, so it may not work depending on the prompt string.
 - Check the results of the leaks command in each test case (source code editing required)
 
 ## Usage
