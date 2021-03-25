@@ -15,7 +15,7 @@ Script for minishell to test and check the results of the leaks command.
 
 Clone this repository to any directory.
 
-### Run the tests
+### Run tests
 
 1. Edit `User settings` in `grademe.sh`.
 
@@ -127,7 +127,7 @@ void	end(void)
 
 ## About the test case
 
-When you run the tests, you may see a lot of KO at first.  
+When you run tests, you may see a lot of KO at first.  
 Please create your own test cases and try to run them only, or delete existing test cases.
 
 ### How to create test cases
