@@ -117,6 +117,7 @@ void	end(void)
 1. テスト用ディレクトリ `test/` を作成し、移動。
 1. セットアップ用コマンドを実行。
 1. bash もしくは minishell を実行。
+   - -c無しの場合、実行するコマンドに "; exit" を追加して実行します。
 1. `outputs/` にstdout, stderrをファイルとして出力。
 1. bash と minishell の stdout, stderr, exit statusを比較。
 
