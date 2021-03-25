@@ -1,46 +1,49 @@
+Translations: [English(en)](README.md) [日本語(ja)](README.ja.md)
+
 # 42_minishell_tester
 
-minishellのテスト、leaksチェックを行うスクリプトです。
+Script for minishell to test and check the results of the leaks command.
 
-## 特徴
-- テストケースの追加が容易
-  - `cases/` 下にテキストファイルを配置するとテストを追加できます。
-- minishellの-cオプションありなし、どちらにも対応
-  - -cなしは簡易対応なため、プロンプト文字列によっては動作しないことがあります。
-- 各テストケースのleaksチェック（要ソースコード編集）
+## Features
+- Easy to add test cases.
+  - You can add tests by placing a text file in `cases/`.
+- Supports both minishell with and without -c option.
+  - Without -c option is simple support. It may not work with some prompt strings.
+- Check the results of the leaks command in each test case (source code editing required)
 
-## 使い方
+## Usage
 
-任意のディレクトリに、このリポジトリをcloneします。
+Clone this repository to any directory.
 
-### テスト実行
+### Run the tests
 
-1. `grademe.sh` の `User settings` を編集します。
+1. Edit `User settings` in `grademe.sh`.
 
-   |変数名|説明|
+   |Variable name|Description|
    |--|--|
-   |MINISHELL_DIR|minishellが存在するディレクトリパス（相対or絶対）|
-   |MINISHELL_EXE|minishellの実行ファイル名|
-   |MINISHELL_PROMPT|stderrに表示されるプロンプト文字列（ -c オプションを使う場合、未設定で大丈夫です）|
+   |MINISHELL_DIR|Directory path where minishell exists (relative or absolute)|
+   |MINISHELL_EXE|Minishell executable file name|
+   |MINISHELL_PROMPT|Prompt string to be displayed in stderr (if you use -c option, you can leave it unset)|
 
-1. テストを実行します。
-   - minishell に -c オプションを実装している場合
+1. Run the test
+   - If you have implemented the -c option to minishell
      ```bash
      ./grademe.sh -c
      ```
-     - exitコマンドの "exit" は stderr に出力する必要があります。
-   - minishell に -c オプションを実装していない場合
+     - The "exit" in the exit command should be printed to stderr.
+   - If you do not implement the -c option to minishell
      ```bash
      ./grademe.sh
      ```
-     - exitコマンドを実装する必要があります。exitコマンドの "exit" は stderr に出力する必要があります。
-     - プロンプトが可変、プロンプトにescを含んでいるなど、sedで置換できない場合、結果が正しく出力されません。その場合は -c オプションを使ってください。
-   - 引数なしでテストを全件実行。引数でテストケースを指定できます。
-     `./grademe.sh -h` でテストケースを確認できます。
+     - You will need to implement the exit command; the "exit" in the exit command should be printed to stderr.
+     - If the prompt is variable or contains ESC, it cannot be replaced by sed and the result will not be printed correctly.  
+       In that case, use the -c option.
+   - Run all test cases with no arguments. You can specify one test case with an argument.  
+     `./grademe.sh -h` to check the test cases.
 
-#### -c 実装方法
+#### How to implement the -c option
 
-- `argv[1]` に"-c"が渡されたら、GNLを使わずに引数で渡された文字列を実行すれば良いです。
+- If "-c" is passed to `argv[1]`, run `argv[2]` as a command string without using GNL.
   ```c
   if (argc > 2 && ft_strncmp("-c", argv[1], 3) == 0)
   {
@@ -48,30 +51,30 @@ minishellのテスト、leaksチェックを行うスクリプトです。
   }
   ```
 
-### leaksチェック
+### Check the result of the leaks command
 
-1. `make 任意のrule` で、minishell終了時にleaksコマンドが実行されるようにします。
-1. `leaks.sh` の `User settings` を編集します。
+1. Add a rule to your Makefile. This rule will build a minishell that will run the leaks command on the exit.
+1. Edit `User settings` in `leaks.sh`
 
-   |変数名|説明|
+   |Variable name|Description|
    |--|--|
-   |MINISHELL_DIR|minishellが存在するディレクトリパス（相対or絶対）|
-   |MINISHELL_EXE|minishellの実行ファイル名|
-   |MAKE_TARGET|実行ファイルを生成するmakeルール|
+   |MINISHELL_DIR|Directory path where minishell exists (relative or absolute)|
+   |MINISHELL_EXE|Minishell executable file name|
+   |MAKE_TARGET|Make rule to generate the executable file|
 
-1. テストを実行する。
-   - minishell に -c オプションを実装している場合
+1. Run the test
+   - If you have implemented the -c option to minishell
      ```bash
      ./leaks.sh -c
      ```
-   - minishell に -c オプションを実装していない場合
+   - If you do not implement the -c option to minishell
      ```bash
      ./leaks.sh
      ```
-   - 引数なしでテストを全件実行。引数でテストケースを指定できます。
-     `./leaks.sh -h` でテストケースを確認できます。
+   - Run all test cases with no arguments. You can specify one test case with an argument.  
+     `./leaks.sh -h` to check the test cases.
 
-#### Makefile, header, cファイル例
+#### Makefile, header, and c file examples
 
 Makefile
 ```Makefile
@@ -86,7 +89,7 @@ leaks	:
 	$(MAKE) CFLAGS="$(CFLAGS) -D LEAKS=1" SRCS="$(SRCS) $(SRCS_LEAKS)" LEAKS=TRUE
 ```
 
-headerファイル（leaks.h）
+header file (leaks.h)
 ```h
 # ifndef LEAKS
 #  define LEAKS 0
@@ -98,7 +101,7 @@ void	end(void) __attribute__((destructor));
 
 # endif
 ```
-cファイル（leaks.c）
+c file (leaks.c)
 ```c
 #include <stdlib.h>
 #include "leaks.h"
@@ -113,37 +116,36 @@ void	end(void)
 #endif
 ```
 
-### テストで行っていること
+### What the script is doing for testing
 
-1. テスト用ディレクトリ `test/` を作成し、移動。
-1. セットアップ用コマンドを実行。
-1. bash もしくは minishell を実行。
-   - -c無しの場合、実行するコマンドに `; exit` を追加して実行します。
-1. `outputs/` にstdout, stderrをファイルとして出力。
-1. bash と minishell の stdout, stderr, exit statusを比較。
+1. Create and move the test directory `test/`.
+1. Run the setup command.
+1. Run bash or minishell.
+   - Without the -c option, add `; exit` to the command to test and run it.
+1. Redirect stdout and stderr to files in `outputs/`.
+1. Compare the stdout, stderr, and exit status of bash and minishell.
 
-## テストケースについて
+## About the test case
 
-テストを実行すると、最初はたくさん KO が出てしまうかもしれません。
-ご自身でテストケースを作ってそれだけ実行してみたり、既存のテストケースを削除したり、いろいろ試してみてください。
+When you run the tests, you may see a lot of KO at first.  
+Please create your own test cases and try to run them only, or delete existing test cases.
 
-### テストケース作成方法
-- `cases/` 下にテキストファイルを作成します。
-- テキストファイルに、実行するコマンド, セットアップコマンド をカンマ区切りで入力します。
-  - これにより実行するコマンドにはカンマを含めることができません。
-- ファイルの末尾には改行が必要です。改行がない場合、最後の行のテストが無視されます。
+### How to create test cases
+- Create a text file in `cases/`.
+- Write the command to be tested and the setup command in the text file separated by commas.
+  - This means that the commands to be tested cannot contain commas.
+- A newline is required at the end of the file. If there is no newline, the test on the last line will be ignored.
 
-## 注意点
-- このテスターの目的は、自動テストによるデグレの防止、およびbashの仕様把握です。
-- このテスターでKO != レビューでKOです。テストケースと課題の要件、ソースコードを確認して各自で判断してください。
-- 以下のテストケースは扱っていません。
+## Cautions
+- The purpose of this tester is to prevent regressions by automated testing and to understand the bash specification.
+- KO with this tester != KO in review. Please check the test cases, the subject, and the source code, and make your own decision.
+- The following test cases are not covered.
   - `$"string"`
   - `` \` ``
   - `$_`
   - `$123`
-  - シグナルのテスト
+  - Signals
 
-## 謝辞
-minishell を一緒に取り組んだ [ToYeah](https://github.com/ToYeah) さんに cd, echo, expand, pwd など多数のテストケースを作成いただきました。
-
-この場を借りて御礼申し上げます。
+## Acknowledgements
+I would like to thank:
+- [ToYeah](https://github.com/ToYeah), who worked on minishell with me, created many test cases for cd, echo, expand, pwd, etc.
