@@ -35,9 +35,9 @@ replace_stderr () {
 		sed -i "" -e 's/bash:/minishell:/g' ${BASH_STDERR_FILE}
 	fi
 	if [ $cflag -eq 0 ]; then
-		sed -i "" -e "s/${MINISHELL_PROMPT}//g" -e "/^exit$/d" ${MINISHELL_STDERR_FILE}
 		sed -i "" -e '/minishell: `.*exit/d' -e '/minishell: syntax error: unexpected end of file/d' ${BASH_STDERR_FILE}
 	fi
+	sed -i "" -e "s/${MINISHELL_PROMPT}//g" -e "/^exit$/d" ${MINISHELL_STDERR_FILE}
 }
 
 assert () {
