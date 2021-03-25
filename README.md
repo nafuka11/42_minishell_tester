@@ -37,7 +37,7 @@ Clone this repository to any directory.
      ```
      - You will need to implement the exit command; the "exit" in the exit command should be printed to stderr.
      - If the prompt is variable or contains ESC in the prompt, it cannot be replaced by sed and the result will not be printed correctly. In that case, use the -c option.
-   - Run all test cases with no arguments. You can specify one test case with an argument.
+   - Run all test cases with no arguments. You can specify one test case with an argument.  
      `. /grademe.sh -h` to check the test cases.
 
 #### How to implement the -c option
@@ -70,7 +70,7 @@ Clone this repository to any directory.
      ```bash
      ./leaks.sh
      ```
-   - Run all test cases with no arguments. You can specify one test case with an argument.
+   - Run all test cases with no arguments. You can specify one test case with an argument.  
      `. /leaks.sh -h` to check the test cases.
 
 #### Makefile, header, and c file examples
@@ -126,7 +126,7 @@ void	end(void)
 
 ## About the test case
 
-When you run the tests, you may see a lot of KO at first.
+When you run the tests, you may see a lot of KO at first.  
 Please create your own test cases and try to run them only, or delete existing test cases.
 
 ### How to create test cases
