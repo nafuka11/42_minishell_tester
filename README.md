@@ -84,7 +84,7 @@ leaks	:
 	$(MAKE) CFLAGS="$(CFLAGS) -D LEAKS=1" SRCS="$(SRCS) $(SRCS_LEAKS)" LEAKS=TRUE
 ```
 
-headerファイル
+headerファイル（leaks.h）
 ```h
 # ifndef LEAKS
 #  define LEAKS 0
@@ -99,7 +99,7 @@ void	end(void) __attribute__((destructor));
 cファイル（leaks.c）
 ```c
 #include <stdlib.h>
-#include "debug.h"
+#include "leaks.h"
 
 #if LEAKS
 
