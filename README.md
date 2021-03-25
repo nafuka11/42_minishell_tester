@@ -36,7 +36,8 @@ Clone this repository to any directory.
      ./grademe.sh
      ```
      - You will need to implement the exit command; the "exit" in the exit command should be printed to stderr.
-     - If the prompt is variable or contains ESC in the prompt, it cannot be replaced by sed and the result will not be printed correctly. In that case, use the -c option.
+     - If the prompt is variable or contains ESC, it cannot be replaced by sed and the result will not be printed correctly.  
+       In that case, use the -c option.
    - Run all test cases with no arguments. You can specify one test case with an argument.  
      `./grademe.sh -h` to check the test cases.
 
