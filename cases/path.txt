@@ -12,3 +12,8 @@ export PATH=''; nosuchfile
 unset PATH; nosuchfile
 unset PATH; export PATH; nosuchfile
 unset PATH; export PATH=; nosuchfile
+export PATH=":a:b"; cmd, mkdir a b; printf '#!/bin/bash\necho a' > a/cmd; printf '#!/bin/bash\necho b' > b/cmd; printf '#!/bin/bash\necho cwd' > cmd; chmod +x a/cmd b/cmd cmd
+export PATH="b:a:"; cmd, mkdir a b; printf '#!/bin/bash\necho a' > a/cmd; printf '#!/bin/bash\necho b' > b/cmd; printf '#!/bin/bash\necho cwd' > cmd; chmod +x a/cmd b/cmd cmd
+export PATH="a:b"; cmd, mkdir a b; printf '#!/bin/bash\necho a' > a/cmd; printf '#!/bin/bash\necho b' > b/cmd; printf '#!/bin/bash\necho cwd' > cmd; chmod +x a/cmd b/cmd cmd
+export PATH="no_such_dir:a"; cmd, mkdir a; printf '#!/bin/bash\necho a' > a/cmd; printf '#!/bin/bash\necho cwd' > cmd; chmod +x a/cmd b/cmd cmd
+export PATH="no_such_dir1:no_such_dir2:"; cmd, printf '#!/bin/bash\necho cwd' > cmd; chmod +x a/cmd b/cmd cmd
