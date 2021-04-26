@@ -1,0 +1,14 @@
+export PATH=":" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH=":/" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH="::" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH="/:" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH="/bin:" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH=":/bin" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH="::/bin::" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH="/bin:" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH="hello:" ; ls , cp /bin/ls .; chmod 000 ls;
+export PATH=""; nosuchfile
+export PATH=''; nosuchfile
+unset PATH; nosuchfile
+unset PATH; export PATH; nosuchfile
+unset PATH; export PATH=; nosuchfile

@@ -24,17 +24,3 @@ dir, mkdir dir
 ./dir, mkdir dir
 ./exe, printf "#!/bin/bash\necho 42" > exe; chmod +x exe; ln -s exe sym; chmod -h -x sym
 echo a | $NO_ENV | cat, unset NO_ENV
-export PATH=":" ; ls , cp /bin/ls .; chmod 000 ls;
-export PATH=":/" ; ls , cp /bin/ls .; chmod 000 ls;
-export PATH="::" ; ls , cp /bin/ls .; chmod 000 ls;
-export PATH="/:" ; ls , cp /bin/ls .; chmod 000 ls;
-export PATH="/bin:" ; ls , cp /bin/ls .; chmod 000 ls;
-export PATH=":/bin" ; ls , cp /bin/ls .; chmod 000 ls;
-export PATH="::/bin::" ; ls , cp /bin/ls .; chmod 000 ls;
-export PATH="/bin:" ; ls , cp /bin/ls .; chmod 000 ls;
-export PATH="hello:" ; ls , cp /bin/ls .; chmod 000 ls;
-export PATH=""; nosuchfile
-export PATH=''; nosuchfile
-unset PATH; nosuchfile
-unset PATH; export PATH; nosuchfile
-unset PATH; export PATH=; nosuchfile
