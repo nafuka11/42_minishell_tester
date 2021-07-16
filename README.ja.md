@@ -1,3 +1,5 @@
+Translations: [English(en)](README.md) [日本語(ja)](README.ja.md)
+
 # 42_minishell_tester
 
 minishellのテスト、leaksチェックを行うスクリプトです。
