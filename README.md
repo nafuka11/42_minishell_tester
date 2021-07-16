@@ -6,7 +6,7 @@ Script for minishell to test and check the result of the leaks command.
 
 |:warning: This script is not compliant with the current subject.|
 |:----|
-|At the time the script was created, termcap was not required, and it was necessary to implement `;`, `\`, exit arguments, etc.<br>With the current subject, the script may not work or may result in a KO.|
+|At the time the script was created, termcap was not required, and it was necessary to implement `;`, `\`, etc.<br>With the current subject, the script may not work or may result in a KO.|
 
 ## Features
 - Easy to add test cases.
