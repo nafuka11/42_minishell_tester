@@ -12,7 +12,8 @@ Script for minishell to test and check the result of the leaks command.
 - Easy to add test cases.
   - You can add tests by placing a text file in `cases/`.
 - Supports both minishell with and without -c option.
-  - Without -c option is simple support. It may not work with some prompt strings.
+  - Without -c option is simple support.  
+    It may not work if termcap is used, or even if termcap is not used, depending on the prompt string.
 - Check the result of the leaks command in each test case (source code editing required)
 
 ## Usage
