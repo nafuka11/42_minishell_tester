@@ -4,11 +4,16 @@ Translations: [English(en)](README.md) [日本語(ja)](README.ja.md)
 
 Script for minishell to test and check the result of the leaks command.
 
+|:warning: This script is not compliant with the current subject.|
+|:----|
+|At the time the script was created, termcap was not required, and it was necessary to implement `;`, `\`, exit arguments, etc.<br>With the current subject, the script may not work or may result in a KO.|
+
 ## Features
 - Easy to add test cases.
   - You can add tests by placing a text file in `cases/`.
 - Supports both minishell with and without -c option.
-  - Without -c option is simple support. It may not work with some prompt strings.
+  - Without -c option is simple support.  
+    It may not work if termcap is used, or even if termcap is not used, depending on the prompt string.
 - Check the result of the leaks command in each test case (source code editing required)
 
 ## Usage
